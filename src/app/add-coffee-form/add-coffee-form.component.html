@@ -1,1 +1,43 @@
-<p>add-coffee-form works!</p>
+<div class="container">
+	<form class="form mx -2"  (ngSubmit)="onSubmit()">
+		<div style="justify-content: center;">
+			<h2 class="heading" style="display:inline;vertical-align:bottom;">New Coffee</h2>
+			<img class="logo" style="display:inline;width:60px;height:60px;" src="/assets/images/coffee.jfif"/>
+		</div>
+
+		<p>
+			<input id="brand" placeholder="Brand" type="text"
+						 [(ngModel)]="brand"/>
+		</p>
+
+		<fieldset>
+			<div>
+				<input type="radio" id="ground" name="ground-beans" value="ground" checked [(ngModel)]="groundOrBeans" />
+				<label for="ground">Ground</label>
+			</div>
+
+			<div>
+				<input type="radio" id="beans" name="ground-beans" value="beans" [(ngModel)]="groundOrBeans"/>
+				<label for="beans">Beans</label>
+			</div>
+
+		</fieldset>
+
+		<select aria-label="Roast Type" type="text" [(ngModel)]="roast" required>
+			<option default value="" selected>Roast Type</option>
+			<option *ngFor="let roastType of roastTypes"
+							[value]="roastType">{{roastType}}
+			</option>
+		</select>
+		<div class="buttons">
+			<button type="reset" (click) = "reset()">
+				Reset
+			</button>
+			<button type="submit" >
+				Submit
+			</button>
+
+		</div>
+	</form>
+</div>
+
